@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedorama Technologies & EdTech — Future Robotics, Space & Quantum Education</title>
+<meta name="description" content="A global future-technology education mission in Robotics, Space & Quantum Science — online classes, downloadable study materials, and in-school labs, starting in Maharashtra, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1120;
+    --panel:#111a30;
+    --panel-line:#22304f;
+    --text:#EDEFF5;
+    --muted:#8A93A8;
+    --robotics:#F4A93E;
+    --space:#5B8CFF;
+    --quantum:#4FD8C4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 24px;
+    background:rgba(11,17,32,0.85);
+    backdrop-filter:blur(8px);
+    z-index:100;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:0.02em;}
+  .logo span{color:var(--robotics);}
+  nav a{font-size:0.85rem;color:var(--muted);text-decoration:none;margin-left:18px;}
+  nav a:hover{color:var(--text);}
+  .nav-links{display:none;}
+  @media(min-width:768px){.nav-links{display:block;}}
+
+  /* HERO */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:120px 20px 60px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--quantum);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2rem,6vw,3.6rem);
+    font-weight:700;
+    line-height:1.08;
+    max-width:900px;
+    margin-bottom:20px;
+  }
+  .hero h1 .r{color:var(--robotics);}
+  .hero h1 .s{color:var(--space);}
+  .hero h1 .q{color:var(--quantum);}
+  .hero p.sub{
+    color:var(--muted);
+    max-width:560px;
+    font-size:1.05rem;
+    margin-bottom:36px;
+  }
+
+  /* ORBIT DIAGRAM - signature element */
+  .orbit-wrap{
+    position:relative;
+    width:min(90vw,420px);
+    height:min(90vw,420px);
+    margin:10px auto 44px;
+  }
+  .orbit{
+    position:absolute;
+    border:1px dashed var(--panel-line);
+    border-radius:50%;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .o1{width:38%;height:38%;}
+  .o2{width:66%;height:66%;}
+  .o3{width:94%;height:94%;}
+  .core{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:15%;aspect-ratio:1;
+    background:radial-gradient(circle at 30% 30%, #1c2947, #0B1120);
+    border:1px solid var(--panel-line);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:var(--muted);
+    text-align:center;
+    z-index:5;
+  }
+  .node{
+    position:absolute;
+    width:15%;aspect-ratio:1;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.6rem;font-weight:500;
+    box-shadow:0 0 24px currentColor;
+  }
+  .n1{color:var(--robotics);background:#0B1120;border:1px solid var(--robotics);
+    animation:spin1 10s linear infinite;}
+  .n2{color:var(--space);background:#0B1120;border:1px solid var(--space);
+    animation:spin2 16s linear infinite;}
+  .n3{color:var(--quantum);background:#0B1120;border:1px solid var(--quantum);
+    animation:spin3 22s linear infinite reverse;}
+
+  @keyframes spin1{from{transform:rotate(0deg) translateX(19vw) rotate(0deg);}to{transform:rotate(360deg) translateX(19vw) rotate(-360deg);}}
+  @keyframes spin2{from{transform:rotate(90deg) translateX(33vw) rotate(-90deg);}to{transform:rotate(450deg) translateX(33vw) rotate(-450deg);}}
+  @keyframes spin3{from{transform:rotate(200deg) translateX(47vw) rotate(-200deg);}to{transform:rotate(560deg) translateX(47vw) rotate(-560deg);}}
+  @media(min-width:420px){
+    @keyframes spin1{from{transform:rotate(0deg) translateX(80px) rotate(0deg);}to{transform:rotate(360deg) translateX(80px) rotate(-360deg);}}
+    @keyframes spin2{from{transform:rotate(90deg) translateX(139px) rotate(-90deg);}to{transform:rotate(450deg) translateX(139px) rotate(-450deg);}}
+    @keyframes spin3{from{transform:rotate(200deg) translateX(197px) rotate(-200deg);}to{transform:rotate(560deg) translateX(197px) rotate(-560deg);}}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .n1,.n2,.n3{animation:none;}
+    .n1{top:20%;left:50%;}.n2{top:75%;left:20%;}.n3{top:75%;left:80%;}
+  }
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .btn{
+    padding:13px 26px;border-radius:6px;font-size:0.9rem;font-weight:600;
+    text-decoration:none;transition:transform 0.15s ease, opacity 0.15s ease;
+    display:inline-block;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--robotics);color:#0B1120;}
+  .btn-ghost{border:1px solid var(--panel-line);color:var(--text);}
+  .btn-gpay{
+    background:#fff;color:#3c4043;width:100%;text-align:center;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:16px;
+  }
+  .btn-gpay::before{
+    content:"G";
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    color:#4285F4;
+    background:#fff;
+  }
+
+  .course-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:800px){.course-grid{grid-template-columns:repeat(3,1fr);}}
+  .course-card{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:10px;
+    padding:24px;display:flex;flex-direction:column;
+  }
+  .course-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;
+  }
+  .course-card h3{font-size:1.1rem;margin-bottom:8px;}
+  .course-meta{color:var(--muted);font-size:0.82rem;margin-bottom:16px;}
+  .course-price{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;display:none;} /* किंमत परत दाखवायची असेल तर display:none काढून टाका */
+  .pay-note{
+    color:var(--muted);font-size:0.78rem;text-align:center;margin-top:22px;
+  }
+  .lock-note{
+    margin-top:14px;font-size:0.78rem;color:var(--quantum);
+    background:rgba(79,216,196,0.08);border:1px solid rgba(79,216,196,0.25);
+    border-radius:6px;padding:8px 10px;
+  }
+  .schedule-list{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:10px;
+    overflow:hidden;
+  }
+  .schedule-row{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
+    padding:14px 18px;border-bottom:1px solid var(--panel-line);
+    font-size:0.88rem;
+  }
+  .schedule-row:last-child{border-bottom:none;}
+  .schedule-row .day{font-weight:600;width:88px;flex-shrink:0;}
+  .schedule-row .topic-name{color:var(--muted);flex:1;min-width:120px;}
+  .schedule-row .time{color:var(--muted);font-size:0.78rem;}
+  .platform-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    padding:5px 10px;border-radius:20px;text-decoration:none;
+    border:1px solid var(--panel-line);white-space:nowrap;
+  }
+  .platform-tag.zoom{color:#4285F4;border-color:#4285F4;}
+  .platform-tag.meet{color:#34A853;border-color:#34A853;}
+  @media(min-width:600px){
+    .schedule-row{flex-wrap:nowrap;}
+  }
+
+  section{padding:80px 20px;max-width:1080px;margin:0 auto;}
+  .section-head{margin-bottom:40px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.6rem,4vw,2.2rem);max-width:640px;}
+  .section-head p{color:var(--muted);max-width:600px;margin-top:12px;}
+
+  /* PROGRAMS */
+  .prog-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:800px){.prog-grid{grid-template-columns:repeat(3,1fr);}}
+  .prog-card{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:10px;
+    padding:26px;border-top:3px solid var(--accent,var(--robotics));
+  }
+  .prog-card h3{font-size:1.15rem;margin-bottom:14px;}
+  .topic-list{list-style:none;font-size:0.92rem;}
+  .topic{border-bottom:1px solid var(--panel-line);}
+  .topic:last-child{border-bottom:none;}
+  .topic-btn{
+    width:100%;display:flex;justify-content:space-between;align-items:center;
+    background:none;border:none;color:var(--muted);
+    font-family:'Inter',sans-serif;font-size:0.92rem;text-align:left;
+    padding:12px 2px;cursor:pointer;
+  }
+  .topic-btn:hover{color:var(--text);}
+  .topic-btn:focus-visible{outline:2px solid var(--quantum);outline-offset:2px;}
+  .chevron{
+    font-family:'JetBrains Mono',monospace;color:inherit;
+    margin-left:12px;flex-shrink:0;transition:transform 0.2s ease;
+  }
+  .topic-btn[aria-expanded="true"] .chevron{transform:rotate(45deg);}
+  .topic-detail{
+    max-height:0;overflow:hidden;
+    transition:max-height 0.25s ease, padding 0.25s ease;
+  }
+  .topic-detail p{
+    color:var(--muted);font-size:0.86rem;line-height:1.55;
+    padding:0 2px 14px;
+  }
+  .topic.open .topic-detail{max-height:160px;}
+  .p-robotics{border-top-color:var(--robotics);}
+  .p-robotics h3{color:var(--robotics);}
+  .p-space{border-top-color:var(--space);}
+  .p-space h3{color:var(--space);}
+  .p-quantum{border-top-color:var(--quantum);}
+  .p-quantum h3{color:var(--quantum);}
+
+  /* PHASES */
+  .phase-track{position:relative;padding-left:28px;border-left:1px solid var(--panel-line);}
+  .phase{margin-bottom:36px;position:relative;}
+  .phase:last-child{margin-bottom:0;}
+  .phase::before{
+    content:attr(data-n);
+    position:absolute;left:-42px;top:0;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--panel);border:1px solid var(--panel-line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--quantum);
+  }
+  .phase h3{font-size:1.05rem;margin-bottom:6px;}
+  .phase p{color:var(--muted);font-size:0.92rem;}
+
+  /* LAB GRID */
+  .lab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(min-width:700px){.lab-grid{grid-template-columns:repeat(4,1fr);}}
+  .lab-item{
+    background:var(--panel);border:1px solid var(--panel-line);
+    border-radius:8px;padding:18px 14px;text-align:center;font-size:0.85rem;color:var(--muted);
+  }
+
+  /* CONTACT */
+  .contact{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:14px;
+    padding:44px 30px;text-align:center;
+  }
+  .contact h2{margin-bottom:12px;}
+  .contact p{color:var(--muted);margin-bottom:26px;}
+  footer{
+    text-align:center;padding:40px 20px;color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--panel-line);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">VEDORAMA<span>.</span></div>
+  <div class="nav-links">
+    <a href="#programs">Programs</a>
+    <a href="#online">Online Learning</a>
+    <a href="#labs">Labs</a>
+    <a href="#implementation">Implementation</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">A Global Future Education Mission</div>
+  <h1>Building the <span class="r">Robotics</span>, <span class="s">Space</span> &amp; <span class="q">Quantum</span> classrooms of tomorrow</h1>
+  <p class="sub">A future-technology education mission in Robotics, Space, Aerospace &amp; Quantum Science — for students everywhere, from grade 1 through 12. We're starting in Maharashtra, India, before expanding worldwide.</p>
+
+  <div class="orbit-wrap">
+    <div class="orbit o1"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="core">VEDORAMA</div>
+    <div class="node n1">ROBOTICS</div>
+    <div class="node n2">SPACE</div>
+    <div class="node n3">QUANTUM</div>
+  </div>
+
+  <div class="cta-row">
+    <a href="#programs" class="btn btn-primary">Explore the programs</a>
+    <a href="#contact" class="btn btn-ghost">Get in touch</a>
+  </div>
+</section>
+
+<section id="vision">
+  <div class="section-head">
+    <div class="eyebrow mono">01 — Vision</div>
+    <h2>Every student, ready for a future that hasn't been built yet.</h2>
+    <p>To empower students everywhere with world-class education in Robotics, Space Science, Aerospace, and Quantum Technologies — creating a generation of innovators, researchers, entrepreneurs, and future technology leaders. Our first classrooms and labs are opening in Maharashtra, India, as the starting point for a worldwide mission.</p>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="section-head">
+    <div class="eyebrow mono">02 — Programs</div>
+    <h2>Three tracks, one connected curriculum.</h2>
+    <p>Structured learning pathways from foundational concepts to hands-on, competition-ready skills. Tap any topic to see what it covers.</p>
+  </div>
+  <div class="prog-grid">
+    <div class="prog-card p-robotics">
+      <h3>Robotics</h3>
+      <ul class="topic-list">
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Robotics Fundamentals<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>The building blocks of a robot — structure, motors, power, and control — and how they work together to sense and act.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Sensors & Actuators<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>How robots perceive the world through sensors, and how actuators turn decisions into movement and action.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Arduino Programming<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Hands-on coding with Arduino microcontrollers to control lights, motors, and sensors in real projects.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">AI-powered Robotics<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Combining robotics with artificial intelligence so machines can recognise, decide, and respond on their own.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Automation Systems<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>How repetitive tasks are automated in the real world — from simple home devices to factory-scale systems.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Robot Design & Competitions<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Designing, building, and testing a robot end-to-end, then putting it to the test in competitive challenges.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="prog-card p-space">
+      <h3>Space & Aerospace</h3>
+      <ul class="topic-list">
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Solar System & Astronomy<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Exploring planets, stars, and the structure of our solar system as a foundation for space science.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Rocket Science<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>The core physics of propulsion and thrust — how rockets escape gravity and reach orbit.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Satellite Technology<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>How satellites are built, launched, and used for communication, navigation, and observation.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">CanSat Projects<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Students design and build a working mini-satellite the size of a soft-drink can, then launch and test it.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Space Mission Design<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Planning a full space mission — objectives, systems, and constraints — the way real space agencies do.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">ISRO-inspired Learning Projects<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Projects modelled on real ISRO missions, connecting classroom learning to India's space achievements.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="prog-card p-quantum">
+      <h3>Quantum</h3>
+      <ul class="topic-list">
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Introduction to Quantum Physics<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>The strange, foundational rules of quantum physics that govern matter at the smallest scales.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Quantum Computing Fundamentals<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>How quantum computers process information differently from classical computers, and why it matters.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Quantum Communication<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>How quantum principles enable new, highly secure ways of transmitting information.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Quantum Cryptography<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Using quantum mechanics to build encryption that's fundamentally harder to break.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Future Quantum Technologies<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>A look at emerging quantum applications — from sensing to materials science — on the near horizon.</p></div>
+        </li>
+        <li class="topic">
+          <button class="topic-btn" aria-expanded="false">Research & Innovation Activities<span class="chevron">+</span></button>
+          <div class="topic-detail"><p>Guided, student-led research projects that turn quantum concepts into original investigations.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="online">
+  <div class="section-head">
+    <div class="eyebrow mono">03 — Online Learning</div>
+    <h2>Learn from anywhere, at your own pace.</h2>
+    <p>For students beyond our physical labs, the same curriculum is available online — live classes, downloadable materials, and virtual labs — so location is never a barrier to future-ready education.</p>
+  </div>
+  <div class="prog-grid">
+    <div class="prog-card p-robotics">
+      <h3>Live Online Classes</h3>
+      <ul>
+        <li>Instructor-led sessions, grade 1–12</li>
+        <li>Small-batch doubt-solving classes</li>
+        <li>Recorded replays for revision</li>
+        <li>Progress tracking for parents & schools</li>
+      </ul>
+    </div>
+    <div class="prog-card p-space">
+      <h3>Study Materials</h3>
+      <ul>
+        <li>Downloadable lesson notes (PDF)</li>
+        <li>Illustrated concept guides</li>
+        <li>Practice worksheets & quizzes</li>
+        <li>Video demonstrations of experiments</li>
+      </ul>
+      <p class="lock-note">🔒 Available to enrolled students only, after payment.</p>
+    </div>
+    <div class="prog-card p-quantum">
+      <h3>Virtual Labs</h3>
+      <ul>
+        <li>Robotics & circuit simulators</li>
+        <li>Interactive space mission simulations</li>
+        <li>Quantum concept visualizers</li>
+        <li>Project submission & feedback portal</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-head" style="margin-top:56px;">
+    <div class="eyebrow mono">03.05 — Weekly Live Class Schedule</div>
+    <h2>Classes run every day of the week.</h2>
+    <p>Held on Zoom and Google Meet — enrolled students receive the joining link before each class. Timings shown are placeholders; update them once finalised.</p>
+  </div>
+  <div class="schedule-list">
+    <div class="schedule-row">
+      <span class="day">Monday</span>
+      <span class="topic-name">Robotics</span>
+      <span class="time mono">5:00 PM – 6:00 PM</span>
+      <a class="platform-tag zoom" href="#">Zoom</a>
+    </div>
+    <div class="schedule-row">
+      <span class="day">Tuesday</span>
+      <span class="topic-name">Space & Aerospace</span>
+      <span class="time mono">5:00 PM – 6:00 PM</span>
+      <a class="platform-tag meet" href="#">Google Meet</a>
+    </div>
+    <div class="schedule-row">
+      <span class="day">Wednesday</span>
+      <span class="topic-name">Quantum</span>
+      <span class="time mono">5:00 PM – 6:00 PM</span>
+      <a class="platform-tag zoom" href="#">Zoom</a>
+    </div>
+    <div class="schedule-row">
+      <span class="day">Thursday</span>
+      <span class="topic-name">Robotics</span>
+      <span class="time mono">5:00 PM – 6:00 PM</span>
+      <a class="platform-tag meet" href="#">Google Meet</a>
+    </div>
+    <div class="schedule-row">
+      <span class="day">Friday</span>
+      <span class="topic-name">Space & Aerospace</span>
+      <span class="time mono">5:00 PM – 6:00 PM</span>
+      <a class="platform-tag zoom" href="#">Zoom</a>
+    </div>
+    <div class="schedule-row">
+      <span class="day">Saturday</span>
+      <span class="topic-name">Quantum</span>
+      <span class="time mono">11:00 AM – 12:00 PM</span>
+      <a class="platform-tag meet" href="#">Google Meet</a>
+    </div>
+    <div class="schedule-row">
+      <span class="day">Sunday</span>
+      <span class="topic-name">Doubt-solving / Revision</span>
+      <span class="time mono">11:00 AM – 12:00 PM</span>
+      <a class="platform-tag zoom" href="#">Zoom</a>
+    </div>
+  </div>
+  <p class="pay-note mono">Join links are shared with enrolled students only, shortly before each class begins.</p>
+
+  <div class="section-head" style="margin-top:56px;">
+    <div class="eyebrow mono">03.1 — Courses</div>
+    <h2>Enrol in a course, learn online, pay by Google Pay.</h2>
+    <p>Each course includes live classes, downloadable materials, and access to the matching virtual lab.</p>
+  </div>
+  <div class="course-grid">
+    <div class="course-card">
+      <span class="course-tag" style="color:var(--robotics);">Robotics</span>
+      <h3>Robotics Starter Course</h3>
+      <p class="course-meta">Grade 1–5 · 4 weeks · Live classes + virtual lab</p>
+      <div class="course-price">₹999</div>
+      <a class="btn btn-gpay" href="upi://pay?pa=YOUR-UPI-ID@bank&pn=Vedorama%20Technologies&am=999&cu=INR&tn=Robotics%20Starter%20Course">Pay with Google Pay</a>
+    </div>
+    <div class="course-card">
+      <span class="course-tag" style="color:var(--space);">Space &amp; Aerospace</span>
+      <h3>Space Explorer Program</h3>
+      <p class="course-meta">Grade 6–10 · 6 weeks · Live classes + virtual lab</p>
+      <div class="course-price">₹1,499</div>
+      <a class="btn btn-gpay" href="upi://pay?pa=YOUR-UPI-ID@bank&pn=Vedorama%20Technologies&am=1499&cu=INR&tn=Space%20Explorer%20Program">Pay with Google Pay</a>
+    </div>
+    <div class="course-card">
+      <span class="course-tag" style="color:var(--quantum);">Quantum</span>
+      <h3>Quantum Foundations</h3>
+      <p class="course-meta">Grade 9–12 · 6 weeks · Live classes + virtual lab</p>
+      <div class="course-price">₹1,999</div>
+      <a class="btn btn-gpay" href="upi://pay?pa=YOUR-UPI-ID@bank&pn=Vedorama%20Technologies&am=1999&cu=INR&tn=Quantum%20Foundations">Pay with Google Pay</a>
+    </div>
+  </div>
+  <p class="pay-note mono">Secure payments accepted via Google Pay (UPI). Tapping "Pay with Google Pay" opens the Google Pay app directly with the amount pre-filled.</p>
+</section>
+
+<section id="labs">
+  <div class="section-head">
+    <div class="eyebrow mono">04 — Future Technology Laboratory</div>
+    <h2>What every participating school gets.</h2>
+  </div>
+  <div class="lab-grid">
+    <div class="lab-item">Robotics Laboratory</div>
+    <div class="lab-item">Space Innovation Lab</div>
+    <div class="lab-item">Aerospace Learning Zone</div>
+    <div class="lab-item">Quantum Learning Corner</div>
+    <div class="lab-item">STEM Activity Kits</div>
+    <div class="lab-item">Electronics & Embedded Systems Lab</div>
+    <div class="lab-item">3D Printing Facility</div>
+    <div class="lab-item">Drone Demonstration Zone</div>
+  </div>
+</section>
+
+<section id="implementation">
+  <div class="section-head">
+    <div class="eyebrow mono">05 — Implementation</div>
+    <h2>A phased rollout, built for scale.</h2>
+  </div>
+  <div class="phase-track">
+    <div class="phase" data-n="I">
+      <h3>Phase I — Pilot in Maharashtra</h3>
+      <p>Focused implementation in selected districts of Maharashtra, India, to validate curriculum, training, and lab setup — alongside the launch of online classes and study materials.</p>
+    </div>
+    <div class="phase" data-n="II">
+      <h3>Phase II — National Expansion</h3>
+      <p>Scaling across more districts and states in India, both in-school and online, based on pilot learnings and outcomes.</p>
+    </div>
+    <div class="phase" data-n="III">
+      <h3>Phase III — Global</h3>
+      <p>Extending the online classes, study materials, and lab model to schools and students worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h2>Let's build this together.</h2>
+    <p>Vedorama Technologies & EdTech Pvt. Ltd. — Founder & CEO, Hemant Giri.</p>
+    <a href="mailto:oramaved@gmail.com" class="btn btn-primary">oramaved@gmail.com</a>
+    <p class="mono" style="margin-top:22px;font-size:0.85rem;color:var(--muted);">Girgaon, Mumbai, Maharashtra, India — 400004</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Vedorama Technologies & EdTech Pvt. Ltd. — A Global Future Robotics, Space & Quantum Education Mission.
+</footer>
+
+<script>
+  document.querySelectorAll('.topic-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var li = btn.closest('.topic');
+      var isOpen = li.classList.contains('open');
+      li.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>
+</body>
+</html>
